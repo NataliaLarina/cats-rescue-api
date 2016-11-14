@@ -15,4 +15,3 @@ mongoose.connection.on('error', function(error) {
 mongoose.connection.on('disconnected', function() {
   console.log('Mongoose disconnected from: ' + connectionString);
 });
-

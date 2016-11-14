@@ -54,6 +54,17 @@ controller.route('/cat/:cat_id')
     });
   })
 
+  .delete(function (req, res) {
+    Cat.remove({ _id: req.params.id }, function(err) {
+      if (!err) {
+          res.json({ message: "That cat is gone.  It's just gone." });
+        } else {
+          res.json(err);
+        }
+    })
+  })
+
+
 
 
 module.exports = controller;
