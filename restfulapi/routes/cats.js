@@ -36,6 +36,24 @@ controller.route('/cat/:cat_id')
         });
   })
 
+  .patch(function(req, res) {
+    // find cat
+    Cat.findById(req.params.cat_id, function(err, cat) {
+      if (err)
+        res.send(err);
+      cat.name = req.body.name;  // update the capsule info
+      cat.note = req.body.note;  // update the capsule info
+      cat.img = req.body.img;  // update the capsule info
+
+      // save the capsule
+      cat.save(function(err) {
+      if (err)
+        res.send(err);
+      res.json({ message: 'capsule updated!' });
+      });
+    });
+  })
+
   .put(function(req, res) {
     // find cat
     Cat.findById(req.params.cat_id, function(err, cat) {
