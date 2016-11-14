@@ -6,7 +6,7 @@ controller.post('/cat', function(req, res, next){
   var catInfo = {
     name: req.body.name || "NoName",
     note: req.body.note || "NoNotes",
-    image: req.body.image || "img!"
+    img: req.body.image || "img!"
   };
   Cat.create(catInfo, function(err, cats){
     if (err) {
