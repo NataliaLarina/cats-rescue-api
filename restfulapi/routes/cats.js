@@ -3,17 +3,24 @@ var controller = express.Router();
 var Cat = require('../models/Cats');
 
 controller.post('/cat', function(req, res, next){
+  console.log(req)
   var catInfo = {
     name: req.body.name || "NoName",
     note: req.body.note || "NoNotes",
-    img: req.body.image || "img!"
+    img: req.body.img || "img!"
   };
-  Cat.create(catInfo, function(err, cats){
+  // var catInfo = {
+  //   name: req.params.name || "NoName",
+  //   note: req.params.note || "NoNotes",
+  //   img: req.params.image || "img!"
+  // };
+  Cat.create(catInfo, function(err, cat){
     if (err) {
       console.log(err)
       res.json(err)
     } else {
       res.json({'success':true})
+      console.log(cat)
     }
   });
 })
