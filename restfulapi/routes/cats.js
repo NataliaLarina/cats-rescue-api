@@ -18,7 +18,7 @@ controller.post('/cat', function(req, res, next){
   });
 })
 
-.get(function(req, res) {
+.get("/cats", function(req, res) {
         Cat.find(function(err, cats) {
             if (err)
                 res.send(err);
