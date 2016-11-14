@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="CatsRescue">
   <head>
     <title><%= title %></title>
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/app.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <section ng-controller="CatsCtrl">
+      <form ng-submit="addCat(name, note)">
+        <input type="text" ng-model="name">
+        <input type="text" ng-model="note">
+        <input type="Submit" value="Add Cat!">
+      </form>
+    </section>
   </body>
 </html>
